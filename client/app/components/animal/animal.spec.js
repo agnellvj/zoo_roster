@@ -1,9 +1,9 @@
-import AboutModule from './about'
+import AnimalModule from './animal'
 
-describe('About', () => {
+describe('Animal', () => {
   let $rootScope, $state, $location, $componentController, $compile;
 
-  beforeEach(window.module(AboutModule));
+  beforeEach(window.module(AnimalModule));
 
   beforeEach(inject(($injector) => {
     $rootScope = $injector.get('$rootScope');
@@ -15,10 +15,10 @@ describe('About', () => {
 
   describe('Module', () => {
     // top-level specs: i.e., routes, injection, naming
-    it('About component should be visible when navigates to /about', () => {
-      $location.url('/about');
+    it('Animal component should be visible when navigates to /animal/1', () => {
+      $location.url('/animal/1');
       $rootScope.$digest();
-      expect($state.current.component).to.eq('about');
+      expect($state.current.component).to.eq('animal');
     });
   });
 
@@ -26,7 +26,7 @@ describe('About', () => {
     // controller specs
     let controller;
     beforeEach(() => {
-      controller = $componentController('about', {
+      controller = $componentController('animal', {
         $scope: $rootScope.$new()
       });
     });
@@ -36,19 +36,4 @@ describe('About', () => {
     });
   });
 
-  describe('View', () => {
-    // view layer specs.
-    let scope, template;
-
-    beforeEach(() => {
-      scope = $rootScope.$new();
-      template = $compile('<about></about>')(scope);
-      scope.$apply();
-    });
-
-    it('has name in template', () => {
-      expect(template.find('h1').html()).to.eq('about');
-    });
-
-  });
 });
