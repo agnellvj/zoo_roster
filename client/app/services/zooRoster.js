@@ -12,9 +12,9 @@ export default class ZooRoster {
   }
 
   fetch() {
-    this._$http().then(
+      return this._$http.get('http://localhost/foo').then(
       (res) => {
-        this.roster = res.data;
+        return res.data;
       },
       (err) => {}
     );
@@ -124,7 +124,7 @@ export default class ZooRoster {
 
     this._$httpBackend
       .when('GET', 'http://localhost/foo')
-      .respond(200, { data: data });
+      .respond(200, data);
 
   }
 }

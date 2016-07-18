@@ -11,7 +11,7 @@ angular.module('app', [
     Common,
     Components,
     'app.services',
-    'ngMockE2E'
+    'ngMockE2E',
   ])
   .config(($locationProvider) => {
     "ngInject";
