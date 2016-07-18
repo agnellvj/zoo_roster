@@ -15,6 +15,13 @@ let animalModule = angular.module('animal', [
     });
 })
 
+.filter('genderize', () => {
+  return (gender) => {
+    let genderHash = { 'm' : 'Male', 'f': 'Female' };
+    return genderHash[gender];
+  }
+})
+
 .component('animal', animalComponent)
 
 .name;

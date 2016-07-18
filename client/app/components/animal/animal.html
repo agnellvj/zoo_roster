@@ -1,3 +1,17 @@
 <h1>{{ $ctrl.name }}</h1>
 <section>
+  <ul>
+    <li>
+      {{ $ctrl.animal.name }}
+    </li>
+    <li>
+      {{ $ctrl.animal.species }}
+    </li>
+    <li>
+      {{ $ctrl.animal.sex | genderize }}
+    </li>
+    <li>
+      {{ $ctrl.animal.dob }}
+    </li>
+  </ul>
 </section>

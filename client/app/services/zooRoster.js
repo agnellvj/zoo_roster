@@ -1,3 +1,4 @@
+import _ from 'lodash';
 
 export default class ZooRoster {
   constructor($http, $injector, $state) {
@@ -7,17 +8,33 @@ export default class ZooRoster {
     let $httpBackend = $injector.get('$httpBackend');
     this._$httpBackend = $httpBackend;
     this._$state = $state;
+    this._roster = [];
 
     this.setupResponse();
   }
 
+  isEmpty() {
+    return this._roster.length === 0;
+  }
+
   fetch() {
-      return this._$http.get('http://localhost/foo').then(
+    let _this = this;
+    while(this._roster.length > 0) {
+      this._roster.pop();
+    }
+    return this._$http.get('http://localhost/foo').then(
       (res) => {
+        _.each(res.data, (z) => {
+          _this._roster.push(z);
+        })
         return res.data;
       },
-      (err) => {}
-    );
+        (err) => {}
+      );
+  }
+
+  find(id) {
+    return _.find(this._roster, { id: parseInt(id) });
   }
 
   setupResponse() {
