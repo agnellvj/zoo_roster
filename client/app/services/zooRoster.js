@@ -1,12 +1,14 @@
+
 export default class ZooRoster {
-  constructor($http, httpBackend, $state) {
+  constructor($http, $injector, $state) {
     'ngInject';
 
     this._$http = $http;
+    let $httpBackend = $injector.get('$httpBackend');
     this._$httpBackend = $httpBackend;
     this._$state = $state;
 
-    setupResponse();
+    this.setupResponse();
   }
 
   fetch() {

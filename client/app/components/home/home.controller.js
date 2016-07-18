@@ -1,5 +1,7 @@
+import services from '../../services/services';
 class HomeController {
-  constructor() {
+  constructor(ZooRoster) {
+   'ngInject';
     this.name = 'home';
   }
 }
