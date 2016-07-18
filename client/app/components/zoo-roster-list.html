@@ -1,5 +1,15 @@
-<ul class="">
+<ul class="roster">
   <li ng-repeat="animal in $ctrl.roster">
-    {{animal.name}}
+    <ul class="actions">
+      <li class="animal-name">
+        {{animal.name}}
+      </li>
+      <li class="edit-name">
+        Edit
+      </li>
+      <li class="animal-link">
+        <span ui-sref="animal({id: animal.id})">Link</span>
+      </li>
+    </ul>
   </li>
 </ul>
