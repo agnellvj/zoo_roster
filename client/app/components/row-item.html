@@ -1,9 +1,9 @@
       <div class="col animal-name">
-        {{$ctrl.item.name}}
+        <editable-name field-value="$ctrl.item.name"></editable-name>
       </div>
-      <div class="col edit-name">
-        Edit
+<!--       <div class="col edit-name">
+        <editable-name></editable-name>
       </div>
-      <div class="col animal-link">
+ -->      <div class="col animal-link">
         <span ui-sref="animal({id: $ctrl.item.id})">Link</span>
       </div>

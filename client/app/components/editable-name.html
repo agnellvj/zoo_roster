@@ -1,0 +1,4 @@
+<span ng-switch="$ctrl.editMode">
+  <input auto-focus ng-switch-when="true" type="{{$ctrl.fieldType}}" ng-model="$ctrl.fieldValue" ng-blur="$ctrl.handleModeChange()">
+  <span ng-switch-default ng-click="$ctrl.handleModeChange()">{{$ctrl.fieldValue}}</span>
+</span>

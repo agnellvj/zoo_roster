@@ -4,6 +4,7 @@ import Common from './common/common';
 import Components from './components/components';
 import AppComponent from './app.component';
 import ngMockE2E from 'angular-mocks';
+import autoFocus from 'angular-auto-focus';
 import 'normalize.css';
 
 angular.module('app', [
@@ -12,6 +13,7 @@ angular.module('app', [
     Components,
     'app.services',
     'ngMockE2E',
+    'mp.autoFocus'
   ])
   .config(($locationProvider) => {
     "ngInject";
