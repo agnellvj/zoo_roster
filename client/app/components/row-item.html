@@ -1,9 +1,6 @@
       <div class="col animal-name">
-        <editable-name field-value="$ctrl.item.name"></editable-name>
+        <editable-name field-id="$ctrl.item.id" field-value="$ctrl.item.name"></editable-name>
       </div>
-<!--       <div class="col edit-name">
-        <editable-name></editable-name>
-      </div>
- -->      <div class="col animal-link">
+      <div class="col animal-link">
         <span ui-sref="animal({id: $ctrl.item.id})">Link</span>
       </div>

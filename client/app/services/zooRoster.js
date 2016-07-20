@@ -37,6 +37,15 @@ export default class ZooRoster {
     return _.find(this._roster, { id: parseInt(id) });
   }
 
+  update(data) {
+    let found = this.find(data.id);
+    let url = 'http://localhost/foo/' + data.id;
+    return this._$http.patch(url, data).then(
+      (res) => {
+        console.log("Animal " + data.id + "\'s name changed to " + data.name);
+      });
+  }
+
   setupResponse() {
     let data = [
       {
@@ -142,6 +151,10 @@ export default class ZooRoster {
     this._$httpBackend
       .when('GET', 'http://localhost/foo')
       .respond(200, data);
+
+    this._$httpBackend
+      .whenRoute('PATCH', 'http://localhost/foo/:id')
+      .respond(200, {});
 
   }
 }

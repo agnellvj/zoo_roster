@@ -1,17 +1,23 @@
 class EditableNameController {
-  constructor() {
+  constructor(ZooRoster) {
    'ngInject';
 
+   this._ZooRoster = ZooRoster;
    this.editMode = false;
-
   }
 
   handleModeChange() {
+    let _this = this;
+
     if (this.editMode) {
-      this.onUpdate({value: this.fieldValue});
+      _this.onUpdate({name: this.fieldValue, id: this.fieldId});
     }
     this.editMode = !this.editMode;
   };
+
+  onUpdate(animal) {
+    this._ZooRoster.update(animal);
+  }
 
   $onInit() {
     // Set a default fieldType

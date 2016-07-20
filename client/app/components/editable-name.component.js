@@ -6,8 +6,8 @@ let editableNameComponent = {
   controller,
   bindings: {
     fieldValue: '<',
-    fieldType: '@?',
-    onUpdate: '&'
+    fieldId: '<',
+    fieldType: '@?'
   }
 }
 
