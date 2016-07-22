@@ -42,6 +42,7 @@ export default class ZooRoster {
     let url = 'http://localhost/foo/' + data.id;
     return this._$http.patch(url, data).then(
       (res) => {
+        _.merge(found, data);
         console.log("Animal " + data.id + "\'s name changed to " + data.name);
       });
   }
